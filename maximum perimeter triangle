@@ -1,0 +1,28 @@
+def maximumPerimeterTriangle(sticks):
+    # Write your code here
+    n=len(sticks)
+    i=0
+    max1=0
+    a=[]
+    b=[]
+    sticks.sort()
+    while(i<n-2):
+        if sticks[i]+sticks[i+1]<=sticks[i+2]:
+            i+=1
+            b=[]
+            b.append(-1)
+        else:
+            perimeter=sticks[i]+sticks[i+1]+sticks[i+2]
+            if perimeter >max1:
+                max1=perimeter
+                a=[]
+                a.append(sticks[i])
+                a.append(sticks[i+1])
+                a.append(sticks[i+2])
+                a.sort()
+            i+=1      
+    if max1==0:
+        return b
+    else:
+        return a
+    
