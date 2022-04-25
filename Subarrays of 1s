@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int n,k,count=0,max=0,p=0,q=0;
+    scanf("%d%d",&n,&k);
+    int a[n];
+    for(int i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    int l=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==0)
+            count+=1;
+        
+        while(count>k)
+        {
+            if(a[l]==0)
+            {count-=1;}
+            l+=1;
+        }
+        
+        if(max<i-l+1)
+        {
+            max=i-l+1;
+            p=i;
+            q=l;
+        }
+    }
+    for(int r=q;r<p-q+1;r++)
+        a[r]=1;
+    //printf("%d     %d\n",p,q);
+   
+    printf("%d\n",max);
+     for(int i=0;i<n;i++)
+        printf("%d ",a[i]);
+    return 0;
+}
