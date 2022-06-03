@@ -1,0 +1,18 @@
+n=int(input())
+a=input()
+a1=[]
+a1=a.split()
+count1,count2,count3=0,0,0
+for i in range(n):
+    if a1[i]=='R':
+        count1+=1
+    elif a1[i]=="G":
+        count2+=1
+    else:
+        count3+=1
+for i in range(count1):
+    print("R",end=' ')
+for i in range(count2):
+    print("G",end=' ')
+for i in range(count3):
+    print("B",end=' ')
